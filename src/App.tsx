@@ -525,18 +525,8 @@ export default function App() {
             <Menu className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-white border border-outline rounded-xl flex items-center justify-center shadow-sm overflow-hidden relative">
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 opacity-20">
-                <div className="bg-google-blue"></div>
-                <div className="bg-google-red"></div>
-                <div className="bg-google-yellow"></div>
-                <div className="bg-google-green"></div>
-              </div>
-              <GraduationCap className="w-6 h-6 text-primary-dark relative z-10" />
-            </div>
             <div className="flex flex-col">
-              <span className="font-display font-bold text-lg text-secondary-dark leading-none">GEG FWB</span>
-              <span className="text-[10px] text-secondary font-medium uppercase tracking-widest mt-0.5">Google for Education</span>
+              <span className="font-display font-bold text-lg text-secondary-dark leading-none">Comment ouvrir un Workspace ?</span>
             </div>
           </div>
         </div>
