@@ -45,7 +45,7 @@ export default function App() {
     {
       id: 0,
       title: "Introduction",
-      icon: <BookOpen className="w-5 h-5" />,
+      icon: <BookOpen className="w-5 h-5 text-google-blue" />,
       content: (
         <div className="space-y-6">
           <div className="prose prose-neutral max-w-none">
@@ -157,7 +157,7 @@ export default function App() {
     {
       id: 1,
       title: "Étape 1 : Mise en route",
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Globe className="w-5 h-5 text-google-red" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Avez-vous déjà un nom de domaine pour l'école ?</h2>
@@ -201,7 +201,7 @@ export default function App() {
     {
       id: 2,
       title: "Étape 2 : Ouverture du compte",
-      icon: <CheckCircle2 className="w-5 h-5" />,
+      icon: <CheckCircle2 className="w-5 h-5 text-google-yellow" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Demande Google Workspace for Education</h2>
@@ -261,7 +261,7 @@ export default function App() {
     {
       id: 3,
       title: "Étape 3 : Validation du domaine",
-      icon: <ShieldCheck className="w-5 h-5" />,
+      icon: <ShieldCheck className="w-5 h-5 text-google-green" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Valider la propriété du nom de domaine</h2>
@@ -302,7 +302,7 @@ export default function App() {
     {
       id: 4,
       title: "Étape 4 : Configuration de base",
-      icon: <Settings className="w-5 h-5" />,
+      icon: <Settings className="w-5 h-5 text-google-blue" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Console d'administration</h2>
@@ -392,7 +392,7 @@ export default function App() {
     {
       id: 5,
       title: "Étape 5 : Chromebooks & MDM",
-      icon: <Laptop className="w-5 h-5" />,
+      icon: <Laptop className="w-5 h-5 text-google-red" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Gestion des appareils</h2>
@@ -439,7 +439,7 @@ export default function App() {
     {
       id: 6,
       title: "Pour aller plus loin",
-      icon: <GraduationCap className="w-5 h-5" />,
+      icon: <GraduationCap className="w-5 h-5 text-google-yellow" />,
       content: (
         <div className="space-y-6">
           <h2 className="text-2xl font-display font-bold text-secondary-dark">Ressources et Communauté</h2>
@@ -582,8 +582,8 @@ export default function App() {
                   `}
                 >
                   <div className={`
-                    shrink-0 transition-colors
-                    ${activeStep === idx ? 'sidebar-icon-active' : 'text-secondary group-hover:text-secondary-dark'}
+                    shrink-0 transition-all duration-300
+                    ${activeStep === idx ? 'scale-110' : 'opacity-50 group-hover:opacity-100'}
                   `}>
                     {completedSteps.includes(step.id) ? <CheckCircle2 className="w-5 h-5 text-google-green" /> : step.icon}
                   </div>
@@ -613,7 +613,14 @@ export default function App() {
                       <span className="text-google-yellow">sur</span>
                       <span className="text-google-green">{steps.length}</span>
                     </span>
-                    <h1 className="text-3xl font-display font-bold text-secondary-dark mt-1">{steps[activeStep].title}</h1>
+                    <div className="flex items-center gap-4 mt-2">
+                      <div className="p-2.5 rounded-2xl bg-white border border-outline shadow-sm flex items-center justify-center">
+                        {React.cloneElement(steps[activeStep].icon as React.ReactElement, { 
+                          className: (steps[activeStep].icon as React.ReactElement).props.className.replace('w-5 h-5', 'w-7 h-7')
+                        })}
+                      </div>
+                      <h1 className="text-3xl font-display font-bold text-secondary-dark leading-tight">{steps[activeStep].title}</h1>
+                    </div>
                   </div>
               <div className="hidden sm:block">
                 {completedSteps.includes(steps[activeStep].id) && (
